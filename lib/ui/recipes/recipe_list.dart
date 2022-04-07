@@ -106,7 +106,7 @@ class _RecipeListState extends State<RecipeList> {
               onPressed: () {
                 startSearch(searchTextController.text);
                 final currentFocus = FocusScope.of(context);
-                if (!currentFocus.hasPrimaryFocus){
+                if (!currentFocus.hasPrimaryFocus) {
                   currentFocus.unfocus();
                 }
               },
@@ -120,11 +120,13 @@ class _RecipeListState extends State<RecipeList> {
                   Expanded(
                     child: TextField(
                       decoration: const InputDecoration(
-                          border: InputBorder.none, hintText: 'Поиск'),
+                        border: InputBorder.none,
+                        hintText: 'Поиск',
+                      ),
                       autofocus: false,
                       textInputAction: TextInputAction.done,
-                      onSubmitted: (value){
-                        if(!previousSearches.contains(value)){
+                      onSubmitted: (value) {
+                        if (!previousSearches.contains(value)) {
                           previousSearches.add(value);
                           savePreviousSearches();
                         }
@@ -137,17 +139,17 @@ class _RecipeListState extends State<RecipeList> {
                       Icons.arrow_drop_down,
                       color: lightGrey,
                     ),
-                    onSelected: (String value){
+                    onSelected: (String value) {
                       searchTextController.text = value;
                       startSearch(searchTextController.text);
                     },
-                    itemBuilder: (BuildContext context){
+                    itemBuilder: (BuildContext context) {
                       return previousSearches
-                          .map<CustomDropdownMenuItem<String>>((String value){
+                          .map<CustomDropdownMenuItem<String>>((String value) {
                         return CustomDropdownMenuItem<String>(
                           text: value,
                           value: value,
-                          callback: (){
+                          callback: () {
                             setState(() {
                               previousSearches.remove(value);
                               Navigator.pop(context);
