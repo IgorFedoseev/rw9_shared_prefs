@@ -10,10 +10,11 @@ class MyRecipesList extends StatefulWidget {
 }
 
 class _MyRecipesListState extends State<MyRecipesList> {
+
   // TODO 1
   List<String> recipes = [];
-  //delete me
   // TODO 2
+
   @override
   void initState() {
     super.initState();

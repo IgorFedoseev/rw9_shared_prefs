@@ -43,8 +43,9 @@ class _CustomDropdownMenuItemState<T> extends State<CustomDropdownMenuItem<T>> {
               ),
               trailing: GestureDetector(
                 onTap: () {
-                  if (widget.callback != null) {
-                    widget.callback!();
+                  final callback = widget.callback;
+                  if (callback != null) {
+                    callback();
                   }
                 },
                 child: SvgPicture.asset('assets/images/dismiss.svg',
